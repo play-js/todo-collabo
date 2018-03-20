@@ -8,15 +8,15 @@ class TodoList extends React.Component {
     };  
   }
 
-  // state = {
-  //   input: "",
-  // };
+  onClickPlusButton = (e) => {
+    console.log(e);
+  }
 
   render() {
     return (
       <div>
         <input />
-        <button>+</button>
+        <button onClick={this.onClickPlusButton}>+</button>
         <ul>
           <li>{this.state.input}</li>
         </ul>
