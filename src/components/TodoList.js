@@ -5,17 +5,16 @@ class TodoList extends React.Component {
     super(props);
     this.state = {
       input: "Play JS",
+      todo: "",
+      // todos: [],
     };  
   }
 
   onClickPlusButton = (e) => {
-    console.log(e);
-    //this.state.input
-
+    this.setState({ todo: this.state.input});
   }
 
   onChangeInput = (e) => {
-  	console.log(e.target.value);
   	this.setState( {input: e.target.value} );
   }
 
@@ -25,7 +24,7 @@ class TodoList extends React.Component {
         <input onChange={this.onChangeInput} value={this.state.input}/>
         <button onClick={this.onClickPlusButton}>+</button>
         <ul>
-          <li>{this.state.input}</li>
+          <li>{this.state.todo}</li>
         </ul>
       </div>
     );
