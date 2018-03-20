@@ -10,10 +10,12 @@ class TodoList extends React.Component {
   }
 
   onClickPlusButton = (e) => {
-    this.state.todos.push(this.state.input);
-    console.log(this.state.todos);
+    let newArray = [...this.state.todos];
+    newArray.push(this.state.input);
+    // this.state.todos.push(this.state.input);
+    // console.log(this.state.todos);
 
-    
+    this.setState({ todos: newArray });
   }
 
   onChangeInput = (e) => {
