@@ -1,5 +1,5 @@
 import React from "react";
-var newState = 898908;
+var privateData = "private";
 
 class TodoList extends React.Component {
   constructor(props) {
@@ -13,9 +13,9 @@ class TodoList extends React.Component {
   }
 
   // getState = () => newState;
-  get myState() {
-    return newState;
-  }
+  // get myState() {
+  //   return newState;
+  // }
 
   onClickPlusButton = e => {
     // let newState = [...this.state.todos];
