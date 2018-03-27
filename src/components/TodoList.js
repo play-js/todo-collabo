@@ -8,6 +8,8 @@ class TodoList extends React.Component {
       input: "Play JS",
       todos: []
     };
+
+    this.newState = [];
   }
 
   // getState = () => newState;
@@ -16,9 +18,14 @@ class TodoList extends React.Component {
   }
 
   onClickPlusButton = e => {
-    //let newState = [...this.state.todos];
+    // let newState = [...this.state.todos];
+    const { input } = this.state;
 
-    //this.newState.push(this.state.input);
+    if (input.trim() === "") {
+      return;
+    }
+
+    this.newState.push(this.state.input);
     this.setState({ todos: this.newState });
 
     this.setState({ input: "" });
@@ -27,7 +34,7 @@ class TodoList extends React.Component {
 
   onClickMinusButton = e => {
     this.newState = this.newState.filter(
-      (data, i) => +e.target.getAttribute("index") !== i
+      (data, i) => +e.target.getAttribute('index') !== i
     );
 
     this.setState({ todos: this.newState });
@@ -46,16 +53,16 @@ class TodoList extends React.Component {
         <button onClick={this.onClickPlusButton}>+</button>
         <ul>
           {// this.state.todos.map(function(data, index) {
-          //   return <li key={index}>{data}</li>
-          // })
-          this.state.todos.map((data, index) => (
-            <li key={index}>
-              {data}
-              <button onClick={this.onClickMinusButton} index={index}>
-                -
+            //   return <li key={index}>{data}</li>
+            // })
+            this.state.todos.map((data, index) => (
+              <li key={index}>
+                {data}
+                <button onClick={this.onClickMinusButton} index={index}>
+                  -
               </button>
-            </li>
-          ))}
+              </li>
+            ))}
         </ul>
       </div>
     );
