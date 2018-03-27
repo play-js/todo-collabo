@@ -7,13 +7,17 @@ class TodoList extends React.Component {
       input: "Play JS",
       todos: [],
     };
+
+    this.newState = [...this.state.todos];
   }
 
   onClickPlusButton = (e) => {
-    this.state.todos.push(this.state.input);
-    console.log(this.state.todos);
+    //let newState = [...this.state.todos];
 
+    this.newState.push(this.state.input);
+    this.setState({todos: this.newState});
     
+    console.log(this.state.todos);
   }
 
   onChangeInput = (e) => {
