@@ -20,6 +20,14 @@ class TodoList extends React.Component {
     console.log(this.state.todos);
   }
 
+  onClickMinusButton = (e) => {
+    this.newState = this.newState.filter((data, i) => +e.target.getAttribute("index") !== i);
+
+    this.setState({todos: this.newState});
+
+    console.log(this.state.todos);
+  }
+
   onChangeInput = (e) => {
     this.setState({ input: e.target.value });
   }
@@ -34,7 +42,8 @@ class TodoList extends React.Component {
             // this.state.todos.map(function(data, index) {
             //   return <li key={index}>{data}</li>
             // })
-            this.state.todos.map((data, index) => <li key={index}>{data}</li>)
+            this.state.todos.map((data, index) => 
+              <li key={index}>{data}<button onClick={this.onClickMinusButton} index={index}>-</button></li>)
           }
         </ul>
       </div>
