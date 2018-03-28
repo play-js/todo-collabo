@@ -16,6 +16,20 @@ console.log(md.privateData);
 md.privateData = "public access";
 console.log(md.privateData);
 
+/**
+ * priavatefunc.func에 접근 불가 => private
+ */
+md.privatefunc();
+md.privatefunc.func = () => console.log(1);
+md.privatefunc();
+
+
+
+// md.privatefunc = () => 1;
+// console.log(md.privatefunc());
+// console.log(md.newState);
+// console.log(md.getState());
+// console.log(md.myState);
 class App extends Component {
   render() {
     return (

@@ -9,13 +9,29 @@ class TodoList extends React.Component {
       todos: []
     };
 
-    this.newState = [];
+    // this.newState = [];
   }
 
   // getState = () => newState;
   // get myState() {
   //   return newState;
   // }
+
+  privatefunc = () => {
+    let publicValue = "public";
+
+    let func = () => {
+      let privateValue = "private"; // 접근 불가
+      console.log(privateValue)
+    }
+
+    return func();
+  }
+
+  get aaa() {
+    let publicValue = "public";
+    return publicValue;
+  }
 
   onClickPlusButton = e => {
     // let newState = [...this.state.todos];
